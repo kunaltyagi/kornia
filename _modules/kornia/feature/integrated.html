@@ -308,7 +308,8 @@
         </div>
         <article role="main">
           <h1>Source code for kornia.feature.integrated</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
@@ -320,7 +321,7 @@
 <span class="kn">from</span> <span class="nn">.affine_shape</span> <span class="kn">import</span> <span class="n">LAFAffNetShapeEstimator</span>
 <span class="kn">from</span> <span class="nn">.hardnet</span> <span class="kn">import</span> <span class="n">HardNet</span>
 <span class="kn">from</span> <span class="nn">.keynet</span> <span class="kn">import</span> <span class="n">KeyNetDetector</span>
-<span class="kn">from</span> <span class="nn">.laf</span> <span class="kn">import</span> <span class="n">extract_patches_from_pyramid</span><span class="p">,</span> <span class="n">get_laf_center</span><span class="p">,</span> <span class="n">raise_error_if_laf_is_not_valid</span>
+<span class="kn">from</span> <span class="nn">.laf</span> <span class="kn">import</span> <span class="n">extract_patches_from_pyramid</span><span class="p">,</span> <span class="n">get_laf_center</span><span class="p">,</span> <span class="n">raise_error_if_laf_is_not_valid</span><span class="p">,</span> <span class="n">scale_laf</span>
 <span class="kn">from</span> <span class="nn">.orientation</span> <span class="kn">import</span> <span class="n">LAFOrienter</span><span class="p">,</span> <span class="n">OriNet</span><span class="p">,</span> <span class="n">PassLAF</span>
 <span class="kn">from</span> <span class="nn">.responses</span> <span class="kn">import</span> <span class="n">BlobDoG</span><span class="p">,</span> <span class="n">CornerGFTT</span>
 <span class="kn">from</span> <span class="nn">.scale_space_detector</span> <span class="kn">import</span> <span class="n">ScaleSpaceDetector</span>
@@ -352,6 +353,9 @@
     <span class="n">patch_descriptor</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 
     <span class="n">timg</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">img</span>
+    <span class="k">if</span> <span class="n">lafs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">"LAF contains no keypoints </span><span class="si">{</span><span class="n">lafs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, returning empty tensor"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">lafs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lafs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">128</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">grayscale_descriptor</span> <span class="ow">and</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">timg</span> <span class="o">=</span> <span class="n">rgb_to_grayscale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 
@@ -424,12 +428,16 @@
 <span class="sd">    Args:</span>
 <span class="sd">        detector: the detection module.</span>
 <span class="sd">        descriptor: the descriptor module.</span>
+<span class="sd">        scaling_coef: multiplier for change default detector scale (e.g. it is too small for KeyNet by default)</span>
 <span class="sd">    """</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detector</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">:</span> <span class="n">LAFDescriptor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detector</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">:</span> <span class="n">LAFDescriptor</span><span class="p">,</span> <span class="n">scaling_coef</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">detector</span> <span class="o">=</span> <span class="n">detector</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">descriptor</span> <span class="o">=</span> <span class="n">descriptor</span>
+        <span class="k">if</span> <span class="n">scaling_coef</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Scaling coef should be &gt;= 0, got </span><span class="si">{</span><span class="n">scaling_coef</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scaling_coef</span> <span class="o">=</span> <span class="n">scaling_coef</span>
 
 <div class="viewcode-block" id="LocalFeature.forward"><a class="viewcode-back" href="../../../feature.html#kornia.feature.LocalFeature.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -446,6 +454,7 @@
 <span class="sd">            - Local descriptors of shape :math:`(B,N,D)` where :math:`D` is descriptor size.</span>
 <span class="sd">        """</span>
         <span class="n">lafs</span><span class="p">,</span> <span class="n">responses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detector</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+        <span class="n">lafs</span> <span class="o">=</span> <span class="n">scale_laf</span><span class="p">(</span><span class="n">lafs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaling_coef</span><span class="p">)</span>
         <span class="n">descs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">descriptor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">lafs</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">lafs</span><span class="p">,</span> <span class="n">responses</span><span class="p">,</span> <span class="n">descs</span><span class="p">)</span></div></div>
 
@@ -500,23 +509,35 @@
 <div class="viewcode-block" id="KeyNetHardNet"><a class="viewcode-back" href="../../../feature.html#kornia.feature.KeyNetHardNet">[docs]</a><span class="k">class</span> <span class="nc">KeyNetHardNet</span><span class="p">(</span><span class="n">LocalFeature</span><span class="p">):</span>
     <span class="sd">"""Convenience module, which implements KeyNet detector + HardNet descriptor."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">upright</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span>
+        <span class="n">upright</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">),</span>
+        <span class="n">scale_laf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="n">ori_module</span> <span class="o">=</span> <span class="n">PassLAF</span><span class="p">()</span> <span class="k">if</span> <span class="n">upright</span> <span class="k">else</span> <span class="n">LAFOrienter</span><span class="p">(</span><span class="n">angle_detector</span><span class="o">=</span><span class="n">OriNet</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
         <span class="n">detector</span> <span class="o">=</span> <span class="n">KeyNetDetector</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="n">num_features</span><span class="p">,</span> <span class="n">ori_module</span><span class="o">=</span><span class="n">ori_module</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="n">descriptor</span> <span class="o">=</span> <span class="n">LAFDescriptor</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">patch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">grayscale_descriptor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">)</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">,</span> <span class="n">scale_laf</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="KeyNetAffNetHardNet"><a class="viewcode-back" href="../../../feature.html#kornia.feature.KeyNetAffNetHardNet">[docs]</a><span class="k">class</span> <span class="nc">KeyNetAffNetHardNet</span><span class="p">(</span><span class="n">LocalFeature</span><span class="p">):</span>
     <span class="sd">"""Convenience module, which implements KeyNet detector + AffNet + HardNet descriptor."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">upright</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">num_features</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span>
+        <span class="n">upright</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">),</span>
+        <span class="n">scale_laf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="n">ori_module</span> <span class="o">=</span> <span class="n">PassLAF</span><span class="p">()</span> <span class="k">if</span> <span class="n">upright</span> <span class="k">else</span> <span class="n">LAFOrienter</span><span class="p">(</span><span class="n">angle_detector</span><span class="o">=</span><span class="n">OriNet</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
         <span class="n">detector</span> <span class="o">=</span> <span class="n">KeyNetDetector</span><span class="p">(</span>
             <span class="kc">True</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="n">num_features</span><span class="p">,</span> <span class="n">ori_module</span><span class="o">=</span><span class="n">ori_module</span><span class="p">,</span> <span class="n">aff_module</span><span class="o">=</span><span class="n">LAFAffNetShapeEstimator</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
         <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
         <span class="n">descriptor</span> <span class="o">=</span> <span class="n">LAFDescriptor</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">patch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">grayscale_descriptor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">)</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span> <span class="n">descriptor</span><span class="p">,</span> <span class="n">scale_laf</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="LocalFeatureMatcher"><a class="viewcode-back" href="../../../feature.html#kornia.feature.LocalFeatureMatcher">[docs]</a><span class="k">class</span> <span class="nc">LocalFeatureMatcher</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
