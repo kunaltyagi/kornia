@@ -308,12 +308,18 @@
         </div>
         <article role="main">
           <h1>Source code for kornia.feature.matching</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">kornia.feature.laf</span> <span class="kn">import</span> <span class="n">get_laf_center</span>
 <span class="kn">from</span> <span class="nn">kornia.testing</span> <span class="kn">import</span> <span class="n">KORNIA_CHECK_DM_DESC</span><span class="p">,</span> <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">,</span> <span class="n">Tensor</span>
+
+
+<span class="k">def</span> <span class="nf">_get_default_fginn_params</span><span class="p">():</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"th"</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span> <span class="s2">"mutual"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"spatial_th"</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">config</span>
 
 
 <span class="k">def</span> <span class="nf">_get_lazy_distance_matrix</span><span class="p">(</span><span class="n">desc1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">desc2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">dm_</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -497,6 +503,83 @@
     <span class="k">return</span> <span class="n">match_dists</span><span class="p">,</span> <span class="n">matches_idxs</span></div>
 
 
+<div class="viewcode-block" id="match_fginn"><a class="viewcode-back" href="../../../feature.html#kornia.feature.match_fginn">[docs]</a><span class="k">def</span> <span class="nf">match_fginn</span><span class="p">(</span>
+    <span class="n">desc1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">desc2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">lafs1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">lafs2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">th</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">spatial_th</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="n">mutual</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">dm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">"""Function, which finds nearest neighbors in desc2 for each vector in desc1.</span>
+
+<span class="sd">    The method satisfies first to second nearest neighbor distance &lt;= th,</span>
+<span class="sd">    and assures 2nd nearest neighbor is geometrically inconsistent with the 1st one</span>
+<span class="sd">    (see :cite:`MODS2015` for more details)</span>
+
+<span class="sd">    If the distance matrix dm is not provided, :py:func:`torch.cdist` is used.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        desc1: Batch of descriptors of a shape :math:`(B1, D)`.</span>
+<span class="sd">        desc2: Batch of descriptors of a shape :math:`(B2, D)`.</span>
+<span class="sd">        lafs1: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
+<span class="sd">        lafs2: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
+
+<span class="sd">        th: distance ratio threshold.</span>
+<span class="sd">        spatial_th: minimal distance in pixels to 2nd nearest neighbor.</span>
+<span class="sd">        mutual: also perform mutual nearest neighbor check</span>
+<span class="sd">        dm: Tensor containing the distances from each descriptor in desc1</span>
+<span class="sd">          to each descriptor in desc2, shape of :math:`(B1, B2)`.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        - Descriptor distance of matching descriptors, shape of :math:`(B3, 1)`.</span>
+<span class="sd">        - Long tensor indexes of matching descriptors in desc1 and desc2. Shape: :math:`(B3, 2)`,</span>
+<span class="sd">          where 0 &lt;= B3 &lt;= B1.</span>
+<span class="sd">    """</span>
+    <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">(</span><span class="n">desc1</span><span class="p">,</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"DIM"</span><span class="p">])</span>
+    <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">(</span><span class="n">desc2</span><span class="p">,</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"DIM"</span><span class="p">])</span>
+    <span class="n">BIG_NUMBER</span> <span class="o">=</span> <span class="mf">1000000.0</span>
+
+    <span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">_get_lazy_distance_matrix</span><span class="p">(</span><span class="n">desc1</span><span class="p">,</span> <span class="n">desc2</span><span class="p">,</span> <span class="n">dm</span><span class="p">)</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">distance_matrix</span><span class="o">.</span><span class="n">dtype</span>
+
+    <span class="k">if</span> <span class="n">desc2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># We cannot perform snn check, so output empty matches</span>
+        <span class="k">return</span> <span class="n">_no_match</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">)</span>
+
+    <span class="n">num_candidates</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">desc2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">vals_cand</span><span class="p">,</span> <span class="n">idxs_in_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">,</span> <span class="n">num_candidates</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">vals_cand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">xy2</span> <span class="o">=</span> <span class="n">get_laf_center</span><span class="p">(</span><span class="n">lafs2</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">candidates_xy</span> <span class="o">=</span> <span class="n">xy2</span><span class="p">[</span><span class="n">idxs_in_2</span><span class="p">]</span>
+    <span class="n">kdist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">candidates_xy</span> <span class="o">-</span> <span class="n">candidates_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">fginn_vals</span> <span class="o">=</span> <span class="n">vals_cand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">(</span><span class="n">kdist</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="n">spatial_th</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="o">*</span> <span class="n">BIG_NUMBER</span>
+    <span class="n">fginn_vals_best</span><span class="p">,</span> <span class="n">fginn_idxs_best</span> <span class="o">=</span> <span class="n">fginn_vals</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># orig_idxs = idxs_in_2.gather(1, fginn_idxs_best.unsqueeze(1))[0]</span>
+    <span class="c1"># if you need to know fginn indexes - uncomment</span>
+
+    <span class="n">vals_2nd</span> <span class="o">=</span> <span class="n">fginn_vals_best</span>
+    <span class="n">idxs_in_2</span> <span class="o">=</span> <span class="n">idxs_in_2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">vals</span> <span class="o">/</span> <span class="n">vals_2nd</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">ratio</span> <span class="o">&lt;=</span> <span class="n">th</span>
+    <span class="n">match_dists</span> <span class="o">=</span> <span class="n">ratio</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">match_dists</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_no_match</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">)</span>
+    <span class="n">idxs_in1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">idxs_in_2</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">distance_matrix</span><span class="o">.</span><span class="n">device</span><span class="p">)[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">idxs_in_2</span> <span class="o">=</span> <span class="n">idxs_in_2</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">matches_idxs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">idxs_in1</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">idxs_in_2</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">match_dists</span><span class="p">,</span> <span class="n">matches_idxs</span> <span class="o">=</span> <span class="n">match_dists</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">matches_idxs</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mutual</span><span class="p">:</span>  <span class="c1"># returning 1-way matches</span>
+        <span class="k">return</span> <span class="n">match_dists</span><span class="p">,</span> <span class="n">matches_idxs</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">idxs_in_1_mut</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">distance_matrix</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">good_mask</span> <span class="o">=</span> <span class="n">matches_idxs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">idxs_in_1_mut</span><span class="p">[</span><span class="n">matches_idxs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">match_dists</span><span class="p">[</span><span class="n">good_mask</span><span class="p">],</span> <span class="n">matches_idxs</span><span class="p">[</span><span class="n">good_mask</span><span class="p">]</span></div>
+
+
 <div class="viewcode-block" id="DescriptorMatcher"><a class="viewcode-back" href="../../../feature.html#kornia.feature.DescriptorMatcher">[docs]</a><span class="k">class</span> <span class="nc">DescriptorMatcher</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">"""Module version of matching functions.</span>
 
@@ -523,6 +606,8 @@
 <span class="sd">        Args:</span>
 <span class="sd">            desc1: Batch of descriptors of a shape :math:`(B1, D)`.</span>
 <span class="sd">            desc2: Batch of descriptors of a shape :math:`(B2, D)`.</span>
+<span class="sd">            lafs1: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
+<span class="sd">            lafs2: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
 
 <span class="sd">        Return:</span>
 <span class="sd">            - Descriptor distance of matching descriptors, shape of :math:`(B3, 1)`.</span>
@@ -537,6 +622,49 @@
             <span class="n">out</span> <span class="o">=</span> <span class="n">match_snn</span><span class="p">(</span><span class="n">desc1</span><span class="p">,</span> <span class="n">desc2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">th</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_mode</span> <span class="o">==</span> <span class="s1">'smnn'</span><span class="p">:</span>
             <span class="n">out</span> <span class="o">=</span> <span class="n">match_smnn</span><span class="p">(</span><span class="n">desc1</span><span class="p">,</span> <span class="n">desc2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">th</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">return</span> <span class="n">out</span></div></div>
+
+
+<div class="viewcode-block" id="GeometryAwareDescriptorMatcher"><a class="viewcode-back" href="../../../feature.html#kornia.feature.GeometryAwareDescriptorMatcher">[docs]</a><span class="k">class</span> <span class="nc">GeometryAwareDescriptorMatcher</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">"""Module version of matching functions.</span>
+
+<span class="sd">    See :func:`~kornia.feature.match_nn`, :func:`~kornia.feature.match_snn`,</span>
+<span class="sd">        :func:`~kornia.feature.match_mnn` or :func:`~kornia.feature.match_smnn` for more details.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        match_mode: type of matching, can be `fginn`.</span>
+<span class="sd">        th: threshold on distance ratio, or other quality measure.</span>
+<span class="sd">    """</span>
+
+    <span class="n">known_modes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'fginn'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">match_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'fginn'</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">_match_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">match_mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">_match_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">known_modes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">match_mode</span><span class="si">}</span><span class="s2"> is not supported. Try one of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">known_modes</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">match_mode</span> <span class="o">=</span> <span class="n">_match_mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">params</span>
+
+<div class="viewcode-block" id="GeometryAwareDescriptorMatcher.forward"><a class="viewcode-back" href="../../../feature.html#kornia.feature.GeometryAwareDescriptorMatcher.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desc1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">desc2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">lafs1</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">lafs2</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">"""</span>
+<span class="sd">        Args:</span>
+<span class="sd">            desc1: Batch of descriptors of a shape :math:`(B1, D)`.</span>
+<span class="sd">            desc2: Batch of descriptors of a shape :math:`(B2, D)`.</span>
+<span class="sd">            lafs1: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
+<span class="sd">            lafs2: LAFs of a shape :math:`(1, B1, 2, 3)`.</span>
+
+<span class="sd">        Return:</span>
+<span class="sd">            - Descriptor distance of matching descriptors, shape of :math:`(B3, 1)`.</span>
+<span class="sd">            - Long tensor indexes of matching descriptors in desc1 and desc2,</span>
+<span class="sd">                shape of :math:`(B3, 2)` where :math:`0 &lt;= B3 &lt;= B1`.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_mode</span> <span class="o">==</span> <span class="s1">'fginn'</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">_get_default_fginn_params</span><span class="p">()</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">match_fginn</span><span class="p">(</span><span class="n">desc1</span><span class="p">,</span> <span class="n">desc2</span><span class="p">,</span> <span class="n">lafs1</span><span class="p">,</span> <span class="n">lafs2</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">'th'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">'spatial_th'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s1">'mutual'</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">return</span> <span class="n">out</span></div></div>
