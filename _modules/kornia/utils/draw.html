@@ -562,6 +562,7 @@
 
 <span class="k">def</span> <span class="nf">_batch_polygons</span><span class="p">(</span><span class="n">polygons</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
     <span class="sa">r</span><span class="sd">"""Converts a List of variable length polygons into a fixed size tensor.</span>
+
 <span class="sd">    Works by repeating the last element in the tensor.</span>
 <span class="sd">    Args:</span>
 <span class="sd">        polygon: List of variable length polygons of shape [N_1 x 2, N_2 x 2, ..., N_B x 2].</span>

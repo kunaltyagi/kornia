@@ -416,7 +416,6 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The rotated image tensor.</span>
-
 <span class="sd">    """</span>
 
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
@@ -434,7 +433,6 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The horizontally flipped image tensor.</span>
-
 <span class="sd">    """</span>
     <span class="n">w</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="nb">input</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="nb">input</span><span class="o">.</span><span class="n">device</span><span class="p">)]</span></div>
@@ -452,7 +450,6 @@
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The vertically flipped image tensor.</span>
-
 <span class="sd">    """</span>
 
     <span class="n">h</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>

@@ -325,8 +325,7 @@
 
 
 <span class="k">def</span> <span class="nf">_get_window_grid_kernel2d</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to with window coordinates,</span>
-<span class="sd">       residual to window center.</span>
+    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to with window coordinates, residual to window center.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">         h: kernel height.</span>
@@ -343,8 +342,8 @@
 
 
 <span class="k">def</span> <span class="nf">_get_center_kernel2d</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return center coordinates,</span>
-<span class="sd">       when applied with F.conv2d to 2d coordinates grid.</span>
+    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return center coordinates, when applied with F.conv2d to 2d</span>
+<span class="sd">    coordinates grid.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        h: kernel height.</span>
@@ -374,8 +373,8 @@
 
 
 <span class="k">def</span> <span class="nf">_get_center_kernel3d</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return center coordinates,</span>
-<span class="sd">       when applied with F.conv2d to 3d coordinates grid.</span>
+    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return center coordinates, when applied with F.conv2d to 3d</span>
+<span class="sd">    coordinates grid.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        d: kernel depth.</span>
@@ -412,8 +411,7 @@
 
 
 <span class="k">def</span> <span class="nf">_get_window_grid_kernel3d</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return coordinates,</span>
-<span class="sd">       residual to window center.</span>
+    <span class="sa">r</span><span class="sd">"""Helper function, which generates a kernel to return coordinates, residual to window center.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        d: kernel depth.</span>
@@ -953,7 +951,7 @@
 
 
 <div class="viewcode-block" id="ConvQuadInterp3d"><a class="viewcode-back" href="../../../../geometry.subpix.html#kornia.geometry.subpix.ConvQuadInterp3d">[docs]</a><span class="k">class</span> <span class="nc">ConvQuadInterp3d</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">"""Calculate soft argmax 3d per window</span>
+    <span class="sa">r</span><span class="sd">"""Calculate soft argmax 3d per window.</span>
 
 <span class="sd">    See :func:`~kornia.geometry.subpix.conv_quad_interp3d` for details.</span>
 <span class="sd">    """</span>

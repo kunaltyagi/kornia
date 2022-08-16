@@ -599,8 +599,8 @@
 <div class="viewcode-block" id="Boxes.to_tensor"><a class="viewcode-back" href="../../../geometry.boxes.html#kornia.geometry.boxes.Boxes.to_tensor">[docs]</a>    <span class="k">def</span> <span class="nf">to_tensor</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">as_padded_sequence</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
-        <span class="sa">r</span><span class="sd">"""Cast :class:`Boxes` to a tensor. ``mode`` controls which 2D boxes format should be use to represent boxes</span>
-<span class="sd">        in the tensor.</span>
+        <span class="sa">r</span><span class="sd">"""Cast :class:`Boxes` to a tensor. ``mode`` controls which 2D boxes format should be use to represent</span>
+<span class="sd">        boxes in the tensor.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            mode: the output box format. It could be:</span>
@@ -914,8 +914,8 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">hexahedrons</span><span class="p">,</span> <span class="n">raise_if_not_floating_point</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Boxes3D.to_tensor"><a class="viewcode-back" href="../../../geometry.boxes.html#kornia.geometry.boxes.Boxes3D.to_tensor">[docs]</a>    <span class="k">def</span> <span class="nf">to_tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"xyzxyz"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="sa">r</span><span class="sd">"""Cast :class:`Boxes3D` to a tensor. ``mode`` controls which 3D boxes format should be use to represent boxes</span>
-<span class="sd">        in the tensor.</span>
+        <span class="sa">r</span><span class="sd">"""Cast :class:`Boxes3D` to a tensor. ``mode`` controls which 3D boxes format should be use to represent</span>
+<span class="sd">        boxes in the tensor.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            mode: The format in which the boxes are provided.</span>
