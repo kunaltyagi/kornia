@@ -1,26 +1,16 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark">
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203957082-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'UA-203957082-2');
-            
-        </script>
-    <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
         <link rel="canonical" href="https://kornia.readthedocs.io/_modules/kornia/geometry/depth.html" />
 
-    <link rel="shortcut icon" href="../../../_static/kornia_logo_favicon.png"/><meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <link rel="shortcut icon" href="../../../_static/kornia_logo_favicon.png"/><!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>kornia.geometry.depth - Kornia</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/main.css" />
     
@@ -180,7 +170,7 @@
   
   
 </a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -205,6 +195,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../applications/image_stitching.html">Image Stitching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../applications/image_registration.html">Image Registration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../applications/semantic_segmentation.html">Semantic segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications/image_denoising.html">Image Denoising</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">KORNIA MODELS</span></p>
 <ul>
@@ -216,10 +207,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../models/hardnet.html">Hardnet (descriptor)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/affnet.html">Affnet (detection)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../models/sold2.html">SOLD2 (Line detection and matching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/dexined.html">Dexined (edge detection)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../augmentation.html">kornia.augmentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../augmentation.auto.html">Automatic Augmentation Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../augmentation.base.html">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../augmentation.container.html">Augmentation Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../augmentation.module.html">Image Augmentations</a></li>
@@ -244,6 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.depth.html">kornia.geometry.depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.epipolar.html">kornia.geometry.epipolar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.homography.html">kornia.geometry.homography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../geometry.liegroup.html">kornia.geometry.liegroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.linalg.html">kornia.geometry.linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.line.html">kornia.geometry.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../geometry.quaternion.html">kornia.geometry.quaternion</a></li>
@@ -257,6 +251,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../metrics.html">kornia.metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../morphology.html">kornia.morphology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tracking.html">kornia.tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../testing.html">kornia.testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../utils.html">kornia.utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../x.html">kornia.x</a></li>
 </ul>
@@ -295,7 +290,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -310,13 +306,14 @@
         </div>
         <article role="main">
           <h1>Source code for kornia.geometry.depth</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""Module containing operators to work on RGB-Depth images."""</span>
+<span></span><span class="sd">&quot;&quot;&quot;Module containing operators to work on RGB-Depth images.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
+<span class="kn">from</span> <span class="nn">kornia.core</span> <span class="kn">import</span> <span class="n">Module</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">concatenate</span><span class="p">,</span> <span class="n">tensor</span>
+<span class="kn">from</span> <span class="nn">kornia.core.check</span> <span class="kn">import</span> <span class="n">KORNIA_CHECK</span><span class="p">,</span> <span class="n">KORNIA_CHECK_IS_TENSOR</span><span class="p">,</span> <span class="n">KORNIA_CHECK_SHAPE</span>
 <span class="kn">from</span> <span class="nn">kornia.filters.sobel</span> <span class="kn">import</span> <span class="n">spatial_gradient</span>
 <span class="kn">from</span> <span class="nn">kornia.utils</span> <span class="kn">import</span> <span class="n">create_meshgrid</span>
 
@@ -324,11 +321,11 @@
 <span class="kn">from</span> <span class="nn">.conversions</span> <span class="kn">import</span> <span class="n">normalize_pixel_coordinates</span>
 <span class="kn">from</span> <span class="nn">.linalg</span> <span class="kn">import</span> <span class="n">compose_transformations</span><span class="p">,</span> <span class="n">convert_points_to_homogeneous</span><span class="p">,</span> <span class="n">inverse_transformation</span><span class="p">,</span> <span class="n">transform_points</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"depth_to_3d"</span><span class="p">,</span> <span class="s2">"depth_to_normals"</span><span class="p">,</span> <span class="s2">"warp_frame_depth"</span><span class="p">,</span> <span class="s2">"depth_warp"</span><span class="p">,</span> <span class="s2">"DepthWarper"</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;depth_to_3d&quot;</span><span class="p">,</span> <span class="s2">&quot;depth_to_normals&quot;</span><span class="p">,</span> <span class="s2">&quot;warp_frame_depth&quot;</span><span class="p">,</span> <span class="s2">&quot;depth_warp&quot;</span><span class="p">,</span> <span class="s2">&quot;DepthWarper&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="depth_to_3d"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.depth_to_3d">[docs]</a><span class="k">def</span> <span class="nf">depth_to_3d</span><span class="p">(</span><span class="n">depth</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sd">"""Compute a 3d point per pixel given its depth value and the camera intrinsics.</span>
+<div class="viewcode-block" id="depth_to_3d"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.depth_to_3d">[docs]</a><span class="k">def</span> <span class="nf">depth_to_3d</span><span class="p">(</span><span class="n">depth</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute a 3d point per pixel given its depth value and the camera intrinsics.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        depth: image tensor containing a depth value per pixel with shape :math:`(B, 1, H, W)`.</span>
@@ -344,38 +341,38 @@
 <span class="sd">        &gt;&gt;&gt; K = torch.eye(3)[None]</span>
 <span class="sd">        &gt;&gt;&gt; depth_to_3d(depth, K).shape</span>
 <span class="sd">        torch.Size([1, 3, 4, 4])</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depht type is not a torch.Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depht type is not a Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depth musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depth musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix type is not a torch.Tensor. "</span> <span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix type is not a Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix must have a shape (B, 3, 3). "</span> <span class="sa">f</span><span class="s2">"Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix must have a shape (B, 3, 3). &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="c1"># create base coordinates grid</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">points_2d</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">normalized_coordinates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 1xHxWx2</span>
+    <span class="n">points_2d</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">normalized_coordinates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 1xHxWx2</span>
     <span class="n">points_2d</span> <span class="o">=</span> <span class="n">points_2d</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">depth</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">depth</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
     <span class="c1"># depth should come in Bx1xHxW</span>
-    <span class="n">points_depth</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 1xHxWx1</span>
+    <span class="n">points_depth</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 1xHxWx1</span>
 
     <span class="c1"># project pixels to camera frame</span>
-    <span class="n">camera_matrix_tmp</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">camera_matrix</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># Bx1x1x3x3</span>
-    <span class="n">points_3d</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">unproject_points</span><span class="p">(</span>
+    <span class="n">camera_matrix_tmp</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">camera_matrix</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># Bx1x1x3x3</span>
+    <span class="n">points_3d</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">unproject_points</span><span class="p">(</span>
         <span class="n">points_2d</span><span class="p">,</span> <span class="n">points_depth</span><span class="p">,</span> <span class="n">camera_matrix_tmp</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="n">normalize_points</span>
     <span class="p">)</span>  <span class="c1"># BxHxWx3</span>
 
     <span class="k">return</span> <span class="n">points_3d</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span></div>
 
 
-<div class="viewcode-block" id="depth_to_normals"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.depth_to_normals">[docs]</a><span class="k">def</span> <span class="nf">depth_to_normals</span><span class="p">(</span><span class="n">depth</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sd">"""Compute the normal surface per pixel.</span>
+<div class="viewcode-block" id="depth_to_normals"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.depth_to_normals">[docs]</a><span class="k">def</span> <span class="nf">depth_to_normals</span><span class="p">(</span><span class="n">depth</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the normal surface per pixel.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        depth: image tensor containing a depth value per pixel with shape :math:`(B, 1, H, W)`.</span>
@@ -391,40 +388,36 @@
 <span class="sd">        &gt;&gt;&gt; K = torch.eye(3)[None]</span>
 <span class="sd">        &gt;&gt;&gt; depth_to_normals(depth, K).shape</span>
 <span class="sd">        torch.Size([1, 3, 4, 4])</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depht type is not a torch.Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depht type is not a Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depth musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depth musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix type is not a torch.Tensor. "</span> <span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix type is not a Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix must have a shape (B, 3, 3). "</span> <span class="sa">f</span><span class="s2">"Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix must have a shape (B, 3, 3). &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="c1"># compute the 3d points from depth</span>
-    <span class="n">xyz</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth_to_3d</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
+    <span class="n">xyz</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth_to_3d</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
 
     <span class="c1"># compute the pointcloud spatial gradients</span>
-    <span class="n">gradients</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">spatial_gradient</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>  <span class="c1"># Bx3x2xHxW</span>
+    <span class="n">gradients</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">spatial_gradient</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>  <span class="c1"># Bx3x2xHxW</span>
 
     <span class="c1"># compute normals</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">gradients</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Bx3xHxW</span>
 
-    <span class="n">normals</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
+    <span class="n">normals</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
     <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">normals</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="warp_frame_depth"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.warp_frame_depth">[docs]</a><span class="k">def</span> <span class="nf">warp_frame_depth</span><span class="p">(</span>
-    <span class="n">image_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">depth_dst</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">src_trans_dst</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-    <span class="sd">"""Warp a tensor from a source to destination frame by the depth in the destination.</span>
+    <span class="n">image_src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">depth_dst</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">src_trans_dst</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Warp a tensor from a source to destination frame by the depth in the destination.</span>
 
 <span class="sd">    Compute 3d points from the depth, transform them using given transformation, then project the point cloud to an</span>
 <span class="sd">    image plane.</span>
@@ -439,32 +432,32 @@
 
 <span class="sd">    Return:</span>
 <span class="sd">        the warped tensor in the source frame with shape :math:`(B,3,H,W)`.</span>
-<span class="sd">    """</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image_src</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input image_src type is not a torch.Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">image_src</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image_src</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input image_src type is not a Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">image_src</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_src</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input image_src musth have a shape (B, D, H, W). Got: </span><span class="si">{</span><span class="n">image_src</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input image_src musth have a shape (B, D, H, W). Got: </span><span class="si">{</span><span class="n">image_src</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depht_dst type is not a torch.Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depht_dst type is not a Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">depth_dst</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">depth_dst</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input depth_dst musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth_dst</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input depth_dst musth have a shape (B, 1, H, W). Got: </span><span class="si">{</span><span class="n">depth_dst</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input src_trans_dst type is not a torch.Tensor. "</span> <span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input src_trans_dst type is not a Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">src_trans_dst</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input src_trans_dst must have a shape (B, 4, 4). "</span> <span class="sa">f</span><span class="s2">"Got: </span><span class="si">{</span><span class="n">src_trans_dst</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input src_trans_dst must have a shape (B, 4, 4). &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">src_trans_dst</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix type is not a torch.Tensor. "</span> <span class="sa">f</span><span class="s2">"Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix type is not a Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">camera_matrix</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Input camera_matrix must have a shape (B, 3, 3). "</span> <span class="sa">f</span><span class="s2">"Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input camera_matrix must have a shape (B, 3, 3). &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">camera_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="c1"># unproject source points to camera frame</span>
-    <span class="n">points_3d_dst</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth_to_3d</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
+    <span class="n">points_3d_dst</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">depth_to_3d</span><span class="p">(</span><span class="n">depth_dst</span><span class="p">,</span> <span class="n">camera_matrix</span><span class="p">,</span> <span class="n">normalize_points</span><span class="p">)</span>  <span class="c1"># Bx3xHxW</span>
 
     <span class="c1"># transform points from source to destination</span>
     <span class="n">points_3d_dst</span> <span class="o">=</span> <span class="n">points_3d_dst</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># BxHxWx3</span>
@@ -473,18 +466,18 @@
     <span class="n">points_3d_src</span> <span class="o">=</span> <span class="n">transform_points</span><span class="p">(</span><span class="n">src_trans_dst</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">points_3d_dst</span><span class="p">)</span>  <span class="c1"># BxHxWx3</span>
 
     <span class="c1"># project back to pixels</span>
-    <span class="n">camera_matrix_tmp</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">camera_matrix</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># Bx1x1xHxW</span>
-    <span class="n">points_2d_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">project_points</span><span class="p">(</span><span class="n">points_3d_src</span><span class="p">,</span> <span class="n">camera_matrix_tmp</span><span class="p">)</span>  <span class="c1"># BxHxWx2</span>
+    <span class="n">camera_matrix_tmp</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">camera_matrix</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># Bx1x1xHxW</span>
+    <span class="n">points_2d_src</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">project_points</span><span class="p">(</span><span class="n">points_3d_src</span><span class="p">,</span> <span class="n">camera_matrix_tmp</span><span class="p">)</span>  <span class="c1"># BxHxWx2</span>
 
     <span class="c1"># normalize points between [-1 / 1]</span>
     <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">depth_dst</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-    <span class="n">points_2d_src_norm</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">normalize_pixel_coordinates</span><span class="p">(</span><span class="n">points_2d_src</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>  <span class="c1"># BxHxWx2</span>
+    <span class="n">points_2d_src_norm</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">normalize_pixel_coordinates</span><span class="p">(</span><span class="n">points_2d_src</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>  <span class="c1"># BxHxWx2</span>
 
-    <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">grid_sample</span><span class="p">(</span><span class="n">image_src</span><span class="p">,</span> <span class="n">points_2d_src_norm</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
+    <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">grid_sample</span><span class="p">(</span><span class="n">image_src</span><span class="p">,</span> <span class="n">points_2d_src_norm</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
-<span class="k">class</span> <span class="nc">DepthWarper</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">"""Warp a patch by depth.</span>
+<span class="k">class</span> <span class="nc">DepthWarper</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Warp a patch by depth.</span>
 
 <span class="sd">    .. math::</span>
 <span class="sd">        P_{src}^{\{dst\}} = K_{dst} * T_{src}^{\{dst\}}</span>
@@ -495,18 +488,18 @@
 <span class="sd">        pinholes_dst: the pinhole models for the destination frame.</span>
 <span class="sd">        height: the height of the image to warp.</span>
 <span class="sd">        width: the width of the image to warp.</span>
-<span class="sd">        mode: interpolation mode to calculate output values ``'bilinear'`` | ``'nearest'``.</span>
-<span class="sd">        padding_mode: padding mode for outside grid values ``'zeros'`` | ``'border'`` | ``'reflection'``.</span>
+<span class="sd">        mode: interpolation mode to calculate output values ``&#39;bilinear&#39;`` | ``&#39;nearest&#39;``.</span>
+<span class="sd">        padding_mode: padding mode for outside grid values ``&#39;zeros&#39;`` | ``&#39;border&#39;`` | ``&#39;reflection&#39;``.</span>
 <span class="sd">        align_corners: interpolation flag.</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">pinhole_dst</span><span class="p">:</span> <span class="n">PinholeCamera</span><span class="p">,</span>
         <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'bilinear'</span><span class="p">,</span>
-        <span class="n">padding_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'zeros'</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;bilinear&#39;</span><span class="p">,</span>
+        <span class="n">padding_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
         <span class="n">align_corners</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -521,35 +514,35 @@
         <span class="c1"># state members</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="p">:</span> <span class="n">PinholeCamera</span> <span class="o">=</span> <span class="n">pinhole_dst</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_src</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">PinholeCamera</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="n">grid</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">normalized_coordinates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 1xHxWx2</span>
+    <span class="k">def</span> <span class="nf">_create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">grid</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">create_meshgrid</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">normalized_coordinates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 1xHxWx2</span>
         <span class="k">return</span> <span class="n">convert_points_to_homogeneous</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>  <span class="c1"># append ones to last dim</span>
 
-    <span class="k">def</span> <span class="nf">compute_projection_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pinhole_src</span><span class="p">:</span> <span class="n">PinholeCamera</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'DepthWarper'</span><span class="p">:</span>
-        <span class="sa">r</span><span class="sd">"""Compute the projection matrix from the source to destination frame."""</span>
+    <span class="k">def</span> <span class="nf">compute_projection_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pinhole_src</span><span class="p">:</span> <span class="n">PinholeCamera</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DepthWarper&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the projection matrix from the source to destination frame.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="p">,</span> <span class="n">PinholeCamera</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s2">"Member self._pinhole_dst expected to be of class "</span>
-                <span class="s2">"PinholeCamera. Got </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="p">))</span>
+                <span class="s2">&quot;Member self._pinhole_dst expected to be of class &quot;</span>
+                <span class="s2">&quot;PinholeCamera. Got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="p">))</span>
             <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pinhole_src</span><span class="p">,</span> <span class="n">PinholeCamera</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s2">"Argument pinhole_src expected to be of class "</span> <span class="s2">"PinholeCamera. Got </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pinhole_src</span><span class="p">))</span>
+                <span class="s2">&quot;Argument pinhole_src expected to be of class &quot;</span> <span class="s2">&quot;PinholeCamera. Got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pinhole_src</span><span class="p">))</span>
             <span class="p">)</span>
         <span class="c1"># compute the relative pose between the non reference and the reference</span>
         <span class="c1"># camera frames.</span>
-        <span class="n">dst_trans_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">compose_transformations</span><span class="p">(</span>
+        <span class="n">dst_trans_src</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">compose_transformations</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="o">.</span><span class="n">extrinsics</span><span class="p">,</span> <span class="n">inverse_transformation</span><span class="p">(</span><span class="n">pinhole_src</span><span class="o">.</span><span class="n">extrinsics</span><span class="p">)</span>
         <span class="p">)</span>
 
         <span class="c1"># compute the projection matrix between the non reference cameras and</span>
         <span class="c1"># the reference.</span>
-        <span class="n">dst_proj_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="o">.</span><span class="n">intrinsics</span><span class="p">,</span> <span class="n">dst_trans_src</span><span class="p">)</span>
+        <span class="n">dst_proj_src</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_dst</span><span class="o">.</span><span class="n">intrinsics</span><span class="p">,</span> <span class="n">dst_trans_src</span><span class="p">)</span>
 
         <span class="c1"># update class members</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_src</span> <span class="o">=</span> <span class="n">pinhole_src</span>
@@ -558,45 +551,43 @@
 
     <span class="k">def</span> <span class="nf">_compute_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">invd</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_src</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Please, call compute_projection_matrix."</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please, call compute_projection_matrix.&quot;</span><span class="p">)</span>
 
-        <span class="n">point</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
-            <span class="p">[[[</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">invd</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]]],</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="o">.</span><span class="n">dtype</span>
-        <span class="p">)</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([[[</span><span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">invd</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]]],</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="n">flow</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
         <span class="n">z</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">flow</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">flow</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">z</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">flow</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">z</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">compute_subpixel_step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="sd">"""Compute the required inverse depth step to achieve sub pixel accurate sampling of the depth cost volume,</span>
+    <span class="k">def</span> <span class="nf">compute_subpixel_step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the required inverse depth step to achieve sub pixel accurate sampling of the depth cost volume,</span>
 <span class="sd">        per camera.</span>
 
-<span class="sd">        Szeliski, Richard, and Daniel Scharstein. "Symmetric sub-pixel stereo matching." European Conference on Computer</span>
+<span class="sd">        Szeliski, Richard, and Daniel Scharstein. &quot;Symmetric sub-pixel stereo matching.&quot; European Conference on Computer</span>
 <span class="sd">        Vision. Springer Berlin Heidelberg, 2002.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">delta_d</span> <span class="o">=</span> <span class="mf">0.01</span>
         <span class="n">xy_m1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_projection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">delta_d</span><span class="p">)</span>
         <span class="n">xy_p1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_projection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">delta_d</span><span class="p">)</span>
         <span class="n">dx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">((</span><span class="n">xy_p1</span> <span class="o">-</span> <span class="n">xy_m1</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
         <span class="n">dxdd</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="p">(</span><span class="n">delta_d</span><span class="p">)</span>  <span class="c1"># pixel*(1/meter)</span>
-        <span class="c1"># half pixel sampling, we're interested in the min for all cameras</span>
+        <span class="c1"># half pixel sampling, we&#39;re interested in the min for all cameras</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">/</span> <span class="n">dxdd</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">warp_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="sd">"""Compute a grid for warping a given the depth from the reference pinhole camera.</span>
+    <span class="k">def</span> <span class="nf">warp_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth_src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute a grid for warping a given the depth from the reference pinhole camera.</span>
 
 <span class="sd">        The function `compute_projection_matrix` has to be called beforehand in order to have precomputed the relative</span>
 <span class="sd">        projection matrices encoding the relative pose and the intrinsics between the reference and a non reference</span>
 <span class="sd">        camera.</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: add type and value checkings</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_src</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Please, call compute_projection_matrix."</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please, call compute_projection_matrix.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">depth_src</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Input depth_src has to be in the shape of "</span> <span class="s2">"Bx1xHxW. Got </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">depth_src</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input depth_src has to be in the shape of &quot;</span> <span class="s2">&quot;Bx1xHxW. Got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">depth_src</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
         <span class="c1"># unpack depth attributes</span>
         <span class="n">batch_size</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">depth_src</span><span class="o">.</span><span class="n">shape</span>
@@ -604,24 +595,24 @@
         <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">depth_src</span><span class="o">.</span><span class="n">dtype</span>
 
         <span class="c1"># expand the base coordinate grid according to the input batch size</span>
-        <span class="n">pixel_coords</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># BxHxWx3</span>
+        <span class="n">pixel_coords</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># BxHxWx3</span>
 
         <span class="c1"># reproject the pixel coordinates to the camera frame</span>
-        <span class="n">cam_coords_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">pixel2cam</span><span class="p">(</span>
+        <span class="n">cam_coords_src</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">pixel2cam</span><span class="p">(</span>
             <span class="n">depth_src</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pinhole_src</span><span class="o">.</span><span class="n">intrinsics_inverse</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">),</span> <span class="n">pixel_coords</span>
         <span class="p">)</span>  <span class="c1"># BxHxWx3</span>
 
         <span class="c1"># reproject the camera coordinates to the pixel</span>
-        <span class="n">pixel_coords_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">cam2pixel</span><span class="p">(</span>
+        <span class="n">pixel_coords_src</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">cam2pixel</span><span class="p">(</span>
             <span class="n">cam_coords_src</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dst_proj_src</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
         <span class="p">)</span>  <span class="c1"># (B*N)xHxWx2</span>
 
         <span class="c1"># normalize between -1 and 1 the coordinates</span>
-        <span class="n">pixel_coords_src_norm</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="n">normalize_pixel_coordinates</span><span class="p">(</span><span class="n">pixel_coords_src</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="n">pixel_coords_src_norm</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">normalize_pixel_coordinates</span><span class="p">(</span><span class="n">pixel_coords_src</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pixel_coords_src_norm</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">patch_dst</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="sd">"""Warp a tensor from destination frame to reference given the depth in the reference frame.</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth_src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">patch_dst</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Warp a tensor from destination frame to reference given the depth in the reference frame.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            depth_src: the depth in the reference frame. The tensor must have a shape :math:`(B, 1, H, W)`.</span>
@@ -646,10 +637,10 @@
 <span class="sd">            &gt;&gt;&gt; depth_src = torch.ones(1, 1, 32, 32)  # Nx1xHxW</span>
 <span class="sd">            &gt;&gt;&gt; image_dst = torch.rand(1, 3, 32, 32)  # NxCxHxW</span>
 <span class="sd">            &gt;&gt;&gt; image_src = warper(depth_src, image_dst)  # NxCxHxW</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">grid_sample</span><span class="p">(</span>
             <span class="n">patch_dst</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">warp_grid</span><span class="p">(</span><span class="n">depth_src</span><span class="p">),</span>  <span class="c1"># type: ignore</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">warp_grid</span><span class="p">(</span><span class="n">depth_src</span><span class="p">),</span>
             <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
             <span class="n">padding_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">padding_mode</span><span class="p">,</span>
             <span class="n">align_corners</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">align_corners</span><span class="p">,</span>
@@ -659,13 +650,13 @@
 <span class="k">def</span> <span class="nf">depth_warp</span><span class="p">(</span>
     <span class="n">pinhole_dst</span><span class="p">:</span> <span class="n">PinholeCamera</span><span class="p">,</span>
     <span class="n">pinhole_src</span><span class="p">:</span> <span class="n">PinholeCamera</span><span class="p">,</span>
-    <span class="n">depth_src</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">patch_dst</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">depth_src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">patch_dst</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">align_corners</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span class="p">):</span>
-    <span class="sa">r</span><span class="sd">"""Function that warps a tensor from destination frame to reference given the depth in the reference frame.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Function that warps a tensor from destination frame to reference given the depth in the reference frame.</span>
 
 <span class="sd">    See :class:`~kornia.geometry.warp.DepthWarper` for details.</span>
 
@@ -679,10 +670,47 @@
 <span class="sd">        &gt;&gt;&gt; depth_src = torch.ones(1, 1, 32, 32)  # Nx1xHxW</span>
 <span class="sd">        &gt;&gt;&gt; image_dst = torch.rand(1, 3, 32, 32)  # NxCxHxW</span>
 <span class="sd">        &gt;&gt;&gt; image_src = depth_warp(pinhole_dst, pinhole_src, depth_src, image_dst, 32, 32)  # NxCxHxW</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">warper</span> <span class="o">=</span> <span class="n">DepthWarper</span><span class="p">(</span><span class="n">pinhole_dst</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="n">align_corners</span><span class="p">)</span>
     <span class="n">warper</span><span class="o">.</span><span class="n">compute_projection_matrix</span><span class="p">(</span><span class="n">pinhole_src</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">warper</span><span class="p">(</span><span class="n">depth_src</span><span class="p">,</span> <span class="n">patch_dst</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="depth_from_disparity"><a class="viewcode-back" href="../../../geometry.depth.html#kornia.geometry.depth.depth_from_disparity">[docs]</a><span class="k">def</span> <span class="nf">depth_from_disparity</span><span class="p">(</span><span class="n">disparity</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">baseline</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">focal</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes depth from disparity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        disparity: Disparity tensor of shape :math:`(*, H, W)`.</span>
+<span class="sd">        baseline: float/tensor containing the distance between the two lenses.</span>
+<span class="sd">        focal: float/tensor containing the focal length.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        Depth map of the shape :math:`(*, H, W)`.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; disparity = torch.rand(4, 1, 4, 4)</span>
+<span class="sd">        &gt;&gt;&gt; baseline = torch.rand(1)</span>
+<span class="sd">        &gt;&gt;&gt; focal = torch.rand(1)</span>
+<span class="sd">        &gt;&gt;&gt; depth_from_disparity(disparity, baseline, focal).shape</span>
+<span class="sd">        torch.Size([4, 1, 4, 4])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">KORNIA_CHECK_IS_TENSOR</span><span class="p">(</span><span class="n">disparity</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Input disparity type is not a Tensor. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">disparity</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">(</span><span class="n">disparity</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">])</span>
+    <span class="n">KORNIA_CHECK</span><span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">baseline</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)),</span>
+        <span class="sa">f</span><span class="s2">&quot;Input baseline should be either a float or Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">baseline</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">KORNIA_CHECK</span><span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">focal</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)),</span> <span class="sa">f</span><span class="s2">&quot;Input focal should be either a float or Tensor. &quot;</span> <span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">focal</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">baseline</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">(</span><span class="n">baseline</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">focal</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="n">KORNIA_CHECK_SHAPE</span><span class="p">(</span><span class="n">focal</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">baseline</span> <span class="o">*</span> <span class="n">focal</span> <span class="o">/</span> <span class="n">disparity</span></div>
 </pre></div>
         </article>
       </div>
@@ -703,9 +731,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -721,7 +747,9 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -730,6 +758,7 @@
     
     <!-- DocsQA integration start -->
     <script src="https://jina-docqa-ui.netlify.app/dist/qabot.js"></script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.3.1/gradio.js"></script>
     <script>
       // This prevents the global search interfere with qa-bot internal text input.
       document.addEventListener('DOMContentLoaded', () => {

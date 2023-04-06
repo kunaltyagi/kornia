@@ -1,27 +1,17 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203957082-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'UA-203957082-2');
-            
-        </script>
-    <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="kornia.geometry.camera" href="geometry.camera.html" /><link rel="prev" title="kornia.geometry.boxes" href="geometry.boxes.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="kornia.geometry.camera" href="geometry.camera.html" /><link rel="prev" title="kornia.geometry.boxes" href="geometry.boxes.html" />
         <link rel="canonical" href="https://kornia.readthedocs.io/geometry.calibration.html" />
 
-    <link rel="shortcut icon" href="_static/kornia_logo_favicon.png"/><meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <link rel="shortcut icon" href="_static/kornia_logo_favicon.png"/><!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>kornia.geometry.calibration - Kornia</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="_static/css/main.css" />
     
@@ -181,7 +171,7 @@
   
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -206,6 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="applications/image_stitching.html">Image Stitching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applications/image_registration.html">Image Registration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="applications/semantic_segmentation.html">Semantic segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications/image_denoising.html">Image Denoising</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">KORNIA MODELS</span></p>
 <ul>
@@ -217,10 +208,12 @@
 <li class="toctree-l1"><a class="reference internal" href="models/hardnet.html">Hardnet (descriptor)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/affnet.html">Affnet (detection)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models/sold2.html">SOLD2 (Line detection and matching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/dexined.html">Dexined (edge detection)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="augmentation.html">kornia.augmentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="augmentation.auto.html">Automatic Augmentation Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="augmentation.base.html">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="augmentation.container.html">Augmentation Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="augmentation.module.html">Image Augmentations</a></li>
@@ -245,6 +238,7 @@
 <li class="toctree-l2"><a class="reference internal" href="geometry.depth.html">kornia.geometry.depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.epipolar.html">kornia.geometry.epipolar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.homography.html">kornia.geometry.homography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry.liegroup.html">kornia.geometry.liegroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.linalg.html">kornia.geometry.linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.line.html">kornia.geometry.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geometry.quaternion.html">kornia.geometry.quaternion</a></li>
@@ -258,6 +252,7 @@
 <li class="toctree-l1"><a class="reference internal" href="metrics.html">kornia.metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="morphology.html">kornia.morphology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tracking.html">kornia.tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">kornia.testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">kornia.utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x.html">kornia.x</a></li>
 </ul>
@@ -296,7 +291,9 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -311,10 +308,11 @@
         </div>
         <article role="main">
           <section id="kornia-geometry-calibration">
-<h1>kornia.geometry.calibration<a class="headerlink" href="#kornia-geometry-calibration" title="Permalink to this headline">#</a></h1>
+<h1>kornia.geometry.calibration<a class="headerlink" href="#kornia-geometry-calibration" title="Permalink to this heading">#</a></h1>
 <p>Module with useful functionalities for camera calibration.</p>
 <p>The pinhole model is an ideal projection model that not considers lens distortion for the projection of a 3D point <span class="math notranslate nohighlight">\((X, Y, Z)\)</span> onto the image plane. To model the distortion of a projected 2D pixel point <span class="math notranslate nohighlight">\((u,v)\)</span> with the linear pinhole model, we need first to estimate the normalized 2D points coordinates <span class="math notranslate nohighlight">\((\bar{u}, \bar{v})\)</span>. For that, we can use the calibration matrix <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> with the following expression</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \begin{bmatrix}
 \bar{u}\\
@@ -325,15 +323,19 @@ u \\
 v \\
 1
 \end{bmatrix} \enspace,
-\end{align}\end{split}\]</div></div>
+\end{align}\end{split}\]</div>
+</div>
 <p>which is equivalent to directly using the internal parameters: focals <span class="math notranslate nohighlight">\(f_u, f_v\)</span> and principal point <span class="math notranslate nohighlight">\((u_0, v_0)\)</span> to estimated the normalized coordinates</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{equation}
 \bar{u} = (u - u_0)/f_u \enspace, \\
 \bar{v} = (v - v_0)/f_v \enspace.
-\end{equation}\end{split}\]</div></div>
+\end{equation}\end{split}\]</div>
+</div>
 <p>The normalized distorted point <span class="math notranslate nohighlight">\((\bar{u}_d, \bar{v}_d)\)</span> is given by</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \begin{bmatrix}
 \bar{u}_d\\
@@ -346,9 +348,11 @@ v \\
 2p_1\bar{u}\bar{v} + p_2(r^2 + 2\bar{u}^2) + s_1r^2 + s_2r^4\\
 2p_2\bar{u}\bar{v} + p_1(r^2 + 2\bar{v}^2) + s_3r^2 + s_4r^4
 \end{bmatrix} \enspace,
-\end{align}\end{split}\]</div></div>
+\end{align}\end{split}\]</div>
+</div>
 <p>where <span class="math notranslate nohighlight">\(r = \bar{u}^2 + \bar{v}^2\)</span>. With this model we consider radial <span class="math notranslate nohighlight">\((k_1, k_2, k_3, k_4, k_4, k_6)\)</span>, tangential <span class="math notranslate nohighlight">\((p_1, p_2)\)</span>, and thin prism <span class="math notranslate nohighlight">\((s_1, s_2, s_3, s_4)\)</span> distortion. If we want to consider tilt distortion <span class="math notranslate nohighlight">\((\tau_x, \tau_y)\)</span>, we need an additional step where we estimate a point <span class="math notranslate nohighlight">\((\bar{u}'_d, \bar{v}'_d)\)</span></p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \begin{bmatrix}
 \bar{u}'_d\\
@@ -364,9 +368,11 @@ v \\
 \bar{v}_d \\
 1
 \end{bmatrix} \enspace,
-\end{align}\end{split}\]</div></div>
+\end{align}\end{split}\]</div>
+</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{R}(\tau_x, \tau_y)\)</span> is a 3D rotation matrix defined by an <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> rotation given by the angles <span class="math notranslate nohighlight">\(\tau_x\)</span> and <span class="math notranslate nohighlight">\(\tau_y\)</span>. Furthermore, <span class="math notranslate nohighlight">\(\mathbf{R}_{ij}(\tau_x, \tau_y)\)</span> represent the <span class="math notranslate nohighlight">\(i\)</span>-th row and <span class="math notranslate nohighlight">\(j\)</span>-th column from <span class="math notranslate nohighlight">\(\mathbf{R}(\tau_x, \tau_y)\)</span> matrix.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{R}(\tau_x, \tau_y) =
 \begin{bmatrix}
@@ -379,9 +385,11 @@ v \\
 0 &amp; \cos \tau_x &amp; \sin \tau_x \\
 0 &amp; -\sin \tau_x &amp; \cos \tau_x
 \end{bmatrix}  \enspace.
-\end{align}\end{split}\]</div></div>
+\end{align}\end{split}\]</div>
+</div>
 <p>Finally, we just need to come back to the original (unnormalized) pixel space. For that we can use the intrinsic matrix</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \begin{bmatrix}
 u_d\\
@@ -392,15 +400,18 @@ v_d\\
 \bar{v}'_d\\
 1
 \end{bmatrix} \enspace,
-\end{align}\end{split}\]</div></div>
+\end{align}\end{split}\]</div>
+</div>
 <p>which is equivalent to</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{equation}
 u_d = f_u \bar{u}'_d + u_0 \enspace, \\
 v_d = f_v \bar{v}'_d + v_0 \enspace.
-\end{equation}\end{split}\]</div></div>
+\end{equation}\end{split}\]</div>
+</div>
 <section id="undistortion">
-<h2>Undistortion<a class="headerlink" href="#undistortion" title="Permalink to this headline">#</a></h2>
+<h2>Undistortion<a class="headerlink" href="#undistortion" title="Permalink to this heading">#</a></h2>
 <p>To compensate for lens distortion a set of 2D points, i.e., to estimate the undistorted coordinates for a given set of distorted points, we need to inverse the previously explained distortion model. For the case of undistorting an image, instead of estimating the undistorted location for each pixel, we distort each pixel in the destination image (final undistorted image) to match them with the input image. We finally interpolate the intensity values at each pixel.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="kornia.geometry.calibration.undistort_image">
@@ -410,19 +421,19 @@ v_d = f_v \bar{v}'_d + v_0 \enspace.
 tangential <span class="math notranslate nohighlight">\((p_1, p_2)\)</span>, thin prism <span class="math notranslate nohighlight">\((s_1, s_2, s_3, s_4)\)</span>, and tilt <span class="math notranslate nohighlight">\((\tau_x, \tau_y)\)</span>
 distortion models are considered in this function.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Input image with shape <span class="math notranslate nohighlight">\((*, C, H, W)\)</span>.</p></li>
-<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
-<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Distortion coefficients
+<li><p><strong>image</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Input image with shape <span class="math notranslate nohighlight">\((*, C, H, W)\)</span>.</p></li>
+<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
+<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Distortion coefficients
 <span class="math notranslate nohighlight">\((k_1,k_2,p_1,p_2[,k_3[,k_4,k_5,k_6[,s_1,s_2,s_3,s_4[,\tau_x,\tau_y]]]])\)</span>. This is
 a vector with 4, 5, 8, 12 or 14 elements with shape <span class="math notranslate nohighlight">\((*, n)\)</span>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Undistorted image with shape <span class="math notranslate nohighlight">\((*, C, H, W)\)</span>.</p>
 </dd>
 </dl>
@@ -436,6 +447,7 @@ a vector with 4, 5, 8, 12 or 14 elements with shape <span class="math notranslat
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="kornia.geometry.calibration.undistort_points">
 <span class="sig-prename descclassname"><span class="pre">kornia.geometry.calibration.</span></span><span class="sig-name descname"><span class="pre">undistort_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kornia/geometry/calibration/undistort.html#undistort_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kornia.geometry.calibration.undistort_points" title="Permalink to this definition">#</a></dt>
@@ -444,22 +456,22 @@ a vector with 4, 5, 8, 12 or 14 elements with shape <span class="math notranslat
 tangential <span class="math notranslate nohighlight">\((p_1, p_2)\)</span>, thin prism <span class="math notranslate nohighlight">\((s_1, s_2, s_3, s_4)\)</span>, and tilt <span class="math notranslate nohighlight">\((\tau_x, \tau_y)\)</span>
 distortion models are considered in this function.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Input image points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p></li>
-<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
-<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Distortion coefficients
+<li><p><strong>points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>torch.Tensor</em></a>) – Input image points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p></li>
+<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>torch.Tensor</em></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
+<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>torch.Tensor</em></a>) – Distortion coefficients
 <span class="math notranslate nohighlight">\((k_1,k_2,p_1,p_2[,k_3[,k_4,k_5,k_6[,s_1,s_2,s_3,s_4[,\tau_x,\tau_y]]]])\)</span>. This is
 a vector with 4, 5, 8, 12 or 14 elements with shape <span class="math notranslate nohighlight">\((*, n)\)</span>.</p></li>
-<li><p><strong>new_K</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>], <em>optional</em>) – Intrinsic camera matrix of the distorted image. By default, it is the same as K but you may additionally
+<li><p><strong>new_K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><em>torch.Tensor</em></a><em> | </em><em>None</em><em>, </em><em>optional</em>) – Intrinsic camera matrix of the distorted image. By default, it is the same as K but you may additionally
 scale and shift the result by using a different matrix. Shape: <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>. Default: None.</p></li>
-<li><p><strong>num_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <em>optional</em>) – Number of undistortion iterations. Default: 5.</p></li>
+<li><p><strong>num_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><em>optional</em>) – Number of undistortion iterations. Default: 5.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)">torch.Tensor</a></p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Undistorted 2D points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p>
 </dd>
 </dl>
@@ -476,6 +488,7 @@ scale and shift the result by using a different matrix. Shape: <span class="math
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="kornia.geometry.calibration.distort_points">
 <span class="sig-prename descclassname"><span class="pre">kornia.geometry.calibration.</span></span><span class="sig-name descname"><span class="pre">distort_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kornia/geometry/calibration/distort.html#distort_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kornia.geometry.calibration.distort_points" title="Permalink to this definition">#</a></dt>
@@ -484,21 +497,21 @@ scale and shift the result by using a different matrix. Shape: <span class="math
 tangential <span class="math notranslate nohighlight">\((p_1, p_2)\)</span>, thin prism <span class="math notranslate nohighlight">\((s_1, s_2, s_3, s_4)\)</span>, and tilt <span class="math notranslate nohighlight">\((\tau_x, \tau_y)\)</span>
 distortion models are considered in this function.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Input image points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p></li>
-<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
-<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Distortion coefficients
+<li><p><strong>points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Input image points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p></li>
+<li><p><strong>K</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Intrinsic camera matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p></li>
+<li><p><strong>dist</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Distortion coefficients
 <span class="math notranslate nohighlight">\((k_1,k_2,p_1,p_2[,k_3[,k_4,k_5,k_6[,s_1,s_2,s_3,s_4[,\tau_x,\tau_y]]]])\)</span>. This is
 a vector with 4, 5, 8, 12 or 14 elements with shape <span class="math notranslate nohighlight">\((*, n)\)</span>.</p></li>
-<li><p><strong>new_K</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>], <em>optional</em>) – Intrinsic camera matrix of the distorted image. By default, it is the same as K but you may additionally
+<li><p><strong>new_K</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>], <em>optional</em>) – Intrinsic camera matrix of the distorted image. By default, it is the same as K but you may additionally
 scale and shift the result by using a different matrix. Shape: <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>. Default: None.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Undistorted 2D points with shape <span class="math notranslate nohighlight">\((*, N, 2)\)</span>.</p>
 </dd>
 </dl>
@@ -510,30 +523,32 @@ scale and shift the result by using a different matrix. Shape: <span class="math
 </pre></div>
 </div>
 </dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="kornia.geometry.calibration.tilt_projection">
 <span class="sig-prename descclassname"><span class="pre">kornia.geometry.calibration.</span></span><span class="sig-name descname"><span class="pre">tilt_projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tauy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_inverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kornia/geometry/calibration/distort.html#tilt_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kornia.geometry.calibration.tilt_projection" title="Permalink to this definition">#</a></dt>
 <dd><p>Estimate the tilt projection matrix or the inverse tilt projection matrix.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>taux</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Rotation angle in radians around the <span class="math notranslate nohighlight">\(x\)</span>-axis with shape <span class="math notranslate nohighlight">\((*, 1)\)</span>.</p></li>
-<li><p><strong>tauy</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Rotation angle in radians around the <span class="math notranslate nohighlight">\(y\)</span>-axis with shape <span class="math notranslate nohighlight">\((*, 1)\)</span>.</p></li>
-<li><p><strong>return_inverse</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – False to obtain the the tilt projection matrix. True for the inverse matrix.
+<li><p><strong>taux</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Rotation angle in radians around the <span class="math notranslate nohighlight">\(x\)</span>-axis with shape <span class="math notranslate nohighlight">\((*, 1)\)</span>.</p></li>
+<li><p><strong>tauy</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – Rotation angle in radians around the <span class="math notranslate nohighlight">\(y\)</span>-axis with shape <span class="math notranslate nohighlight">\((*, 1)\)</span>.</p></li>
+<li><p><strong>return_inverse</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <em>optional</em>) – False to obtain the the tilt projection matrix. True for the inverse matrix.
 Default:  <code class="code docutils literal notranslate"><span class="pre">False</span></code></p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Inverse tilt projection matrix with shape <span class="math notranslate nohighlight">\((*, 3, 3)\)</span>.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)">torch.Tensor</a></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)">torch.Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>
+
 </section>
 <section id="perspective-n-point-pnp">
-<h2>Perspective-n-Point (PnP)<a class="headerlink" href="#perspective-n-point-pnp" title="Permalink to this headline">#</a></h2>
+<h2>Perspective-n-Point (PnP)<a class="headerlink" href="#perspective-n-point-pnp" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="kornia.geometry.calibration.solve_pnp_dlt">
 <span class="sig-prename descclassname"><span class="pre">kornia.geometry.calibration.</span></span><span class="sig-name descname"><span class="pre">solve_pnp_dlt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">world_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intrinsics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/kornia/geometry/calibration/pnp.html#solve_pnp_dlt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kornia.geometry.calibration.solve_pnp_dlt" title="Permalink to this definition">#</a></dt>
@@ -553,25 +568,25 @@ is sensitive to the value of the svd_eps parameter.</p>
 <p>Another bad condition occurs when the camera and the points lie on a
 twisted cubic. However, this function does not check for this condition.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>world_points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, N, 3)\)</span> representing
+<li><p><strong>world_points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, N, 3)\)</span> representing
 the points in the world space.</p></li>
-<li><p><strong>img_points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, N, 2)\)</span> representing
+<li><p><strong>img_points</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, N, 2)\)</span> representing
 the points in the image space.</p></li>
-<li><p><strong>intrinsics</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, 3, 3)\)</span> representing
+<li><p><strong>intrinsics</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>) – A tensor with shape <span class="math notranslate nohighlight">\((B, 3, 3)\)</span> representing
 the intrinsic matrices.</p></li>
-<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>], <em>optional</em>) – This parameter is not used currently and is just a
+<li><p><strong>weights</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>], <em>optional</em>) – This parameter is not used currently and is just a
 placeholder for API consistency.
 Default:  <code class="code docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>svd_eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>optional</em>) – A small float value to avoid numerical precision issues.
+<li><p><strong>svd_eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>, <em>optional</em>) – A small float value to avoid numerical precision issues.
 Default:  <code class="code docutils literal notranslate"><span class="pre">0.0001</span></code></p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v1.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A tensor with shape <span class="math notranslate nohighlight">\((B, 3, 4)\)</span> representing the estimated world to
 camera transformation matrices (also known as the extrinsic matrices).</p>
 </dd>
@@ -610,6 +625,7 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
 </pre></div>
 </div>
 </dd></dl>
+
 </section>
 </section>
 
@@ -625,10 +641,10 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
                 </div>
                 <div class="title">kornia.geometry.camera</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="geometry.boxes.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -650,9 +666,7 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -664,15 +678,24 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">kornia.geometry.calibration</a><ul>
-<li><a class="reference internal" href="#undistortion">Undistortion</a></li>
-<li><a class="reference internal" href="#perspective-n-point-pnp">Perspective-n-Point (PnP)</a></li>
+<li><a class="reference internal" href="#undistortion">Undistortion</a><ul>
+<li><a class="reference internal" href="#kornia.geometry.calibration.undistort_image"><code class="docutils literal notranslate"><span class="pre">undistort_image()</span></code></a></li>
+<li><a class="reference internal" href="#kornia.geometry.calibration.undistort_points"><code class="docutils literal notranslate"><span class="pre">undistort_points()</span></code></a></li>
+<li><a class="reference internal" href="#kornia.geometry.calibration.distort_points"><code class="docutils literal notranslate"><span class="pre">distort_points()</span></code></a></li>
+<li><a class="reference internal" href="#kornia.geometry.calibration.tilt_projection"><code class="docutils literal notranslate"><span class="pre">tilt_projection()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#perspective-n-point-pnp">Perspective-n-Point (PnP)</a><ul>
+<li><a class="reference internal" href="#kornia.geometry.calibration.solve_pnp_dlt"><code class="docutils literal notranslate"><span class="pre">solve_pnp_dlt()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -688,7 +711,9 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -698,6 +723,7 @@ camera transformation matrices (also known as the extrinsic matrices).</p>
     
     <!-- DocsQA integration start -->
     <script src="https://jina-docqa-ui.netlify.app/dist/qabot.js"></script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.3.1/gradio.js"></script>
     <script>
       // This prevents the global search interfere with qa-bot internal text input.
       document.addEventListener('DOMContentLoaded', () => {

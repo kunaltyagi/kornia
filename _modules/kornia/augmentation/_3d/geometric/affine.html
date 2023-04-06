@@ -1,26 +1,16 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark">
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-203957082-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            gtag('config', 'UA-203957082-2');
-            
-        </script>
-    <link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../../genindex.html" /><link rel="search" title="Search" href="../../../../../search.html" />
         <link rel="canonical" href="https://kornia.readthedocs.io/_modules/kornia/augmentation/_3d/geometric/affine.html" />
 
-    <link rel="shortcut icon" href="../../../../../_static/kornia_logo_favicon.png"/><meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <link rel="shortcut icon" href="../../../../../_static/kornia_logo_favicon.png"/><!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>kornia.augmentation._3d.geometric.affine - Kornia</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.59c74d8c95b765a7fd995ac71d459ebe.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/css/main.css" />
     
@@ -180,7 +170,7 @@
   
   
 </a><form class="sidebar-search-container" method="get" action="../../../../../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -205,6 +195,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../applications/image_stitching.html">Image Stitching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../applications/image_registration.html">Image Registration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../applications/semantic_segmentation.html">Semantic segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../applications/image_denoising.html">Image Denoising</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">KORNIA MODELS</span></p>
 <ul>
@@ -216,10 +207,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../models/hardnet.html">Hardnet (descriptor)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../models/affnet.html">Affnet (detection)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../models/sold2.html">SOLD2 (Line detection and matching)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../models/dexined.html">Dexined (edge detection)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../../augmentation.html">kornia.augmentation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../augmentation.auto.html">Automatic Augmentation Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../augmentation.base.html">Base Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../augmentation.container.html">Augmentation Containers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../augmentation.module.html">Image Augmentations</a></li>
@@ -244,6 +237,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.depth.html">kornia.geometry.depth</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.epipolar.html">kornia.geometry.epipolar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.homography.html">kornia.geometry.homography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.liegroup.html">kornia.geometry.liegroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.linalg.html">kornia.geometry.linalg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.line.html">kornia.geometry.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../../geometry.quaternion.html">kornia.geometry.quaternion</a></li>
@@ -257,6 +251,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../metrics.html">kornia.metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../morphology.html">kornia.morphology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../tracking.html">kornia.tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../testing.html">kornia.testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../utils.html">kornia.utils</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../x.html">kornia.x</a></li>
 </ul>
@@ -295,7 +290,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -310,18 +306,17 @@
         </div>
         <article role="main">
           <h1>Source code for kornia.augmentation._3d.geometric.affine</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
-
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">kornia.augmentation</span> <span class="kn">import</span> <span class="n">random_generator</span> <span class="k">as</span> <span class="n">rg</span>
-<span class="kn">from</span> <span class="nn">kornia.augmentation._3d.base</span> <span class="kn">import</span> <span class="n">AugmentationBase3D</span>
+<span class="kn">from</span> <span class="nn">kornia.augmentation._3d.geometric.base</span> <span class="kn">import</span> <span class="n">GeometricAugmentationBase3D</span>
 <span class="kn">from</span> <span class="nn">kornia.constants</span> <span class="kn">import</span> <span class="n">Resample</span>
+<span class="kn">from</span> <span class="nn">kornia.core</span> <span class="kn">import</span> <span class="n">Tensor</span>
 <span class="kn">from</span> <span class="nn">kornia.geometry</span> <span class="kn">import</span> <span class="n">deg2rad</span><span class="p">,</span> <span class="n">get_affine_matrix3d</span><span class="p">,</span> <span class="n">warp_affine3d</span>
 
 
-<div class="viewcode-block" id="RandomAffine3D"><a class="viewcode-back" href="../../../../../augmentation.module.html#kornia.augmentation.RandomAffine3D">[docs]</a><span class="k">class</span> <span class="nc">RandomAffine3D</span><span class="p">(</span><span class="n">AugmentationBase3D</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">"""Apply affine transformation 3D volumes (5D tensor).</span>
+<div class="viewcode-block" id="RandomAffine3D"><a class="viewcode-back" href="../../../../../augmentation.module.html#kornia.augmentation.RandomAffine3D">[docs]</a><span class="k">class</span> <span class="nc">RandomAffine3D</span><span class="p">(</span><span class="n">GeometricAugmentationBase3D</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply affine transformation 3D volumes (5D tensor).</span>
 
 <span class="sd">    The transformation is computed so that the center is kept invariant.</span>
 
@@ -351,9 +346,7 @@
 <span class="sd">            will be applied.</span>
 <span class="sd">            If shear is a tuple of 6 tuples, a shear to the i-th facet in the range (-shear[i, 0], shear[i, 1])</span>
 <span class="sd">            will be applied.</span>
-<span class="sd">        resample: resample mode from "nearest" (0) or "bilinear" (1).</span>
-<span class="sd">        return_transform: if ``True`` return the matrix describing the transformation</span>
-<span class="sd">            applied to each.</span>
+<span class="sd">        resample: resample mode from &quot;nearest&quot; (0) or &quot;bilinear&quot; (1).</span>
 <span class="sd">        same_on_batch: apply the same transformation across the batch.</span>
 <span class="sd">        align_corners: interpolation flag.</span>
 <span class="sd">        keepdim: whether to keep the output shape the same as input (True) or broadcast it</span>
@@ -394,7 +387,7 @@
 <span class="sd">        &gt;&gt;&gt; aug = RandomAffine3D((15., 20., 20.), p=1.)</span>
 <span class="sd">        &gt;&gt;&gt; (aug(input) == aug(input, params=aug._params)).all()</span>
 <span class="sd">        tensor(True)</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -410,6 +403,7 @@
             <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
         <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">shears</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="kc">None</span><span class="p">,</span>
             <span class="n">Tensor</span><span class="p">,</span>
             <span class="nb">float</span><span class="p">,</span>
             <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -428,42 +422,43 @@
         <span class="n">align_corners</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">p</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
         <span class="n">keepdim</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">return_transform</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">return_transform</span><span class="o">=</span><span class="n">return_transform</span><span class="p">,</span> <span class="n">same_on_batch</span><span class="o">=</span><span class="n">same_on_batch</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="n">keepdim</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">same_on_batch</span><span class="o">=</span><span class="n">same_on_batch</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="n">keepdim</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">degrees</span> <span class="o">=</span> <span class="n">degrees</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shears</span> <span class="o">=</span> <span class="n">shears</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">translate</span> <span class="o">=</span> <span class="n">translate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">resample</span><span class="o">=</span><span class="n">Resample</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">resample</span><span class="p">),</span> <span class="n">align_corners</span><span class="o">=</span><span class="n">align_corners</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_param_generator</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">AffineGenerator3D</span><span class="p">,</span> <span class="n">rg</span><span class="o">.</span><span class="n">AffineGenerator3D</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shears</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_param_generator</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">AffineGenerator3D</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shears</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">compute_transformation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">flags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="n">transform</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="n">get_affine_matrix3d</span><span class="p">(</span>
-            <span class="n">params</span><span class="p">[</span><span class="s2">"translations"</span><span class="p">],</span>
-            <span class="n">params</span><span class="p">[</span><span class="s2">"center"</span><span class="p">],</span>
-            <span class="n">params</span><span class="p">[</span><span class="s2">"scale"</span><span class="p">],</span>
-            <span class="n">params</span><span class="p">[</span><span class="s2">"angles"</span><span class="p">],</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"sxy"</span><span class="p">]),</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"sxz"</span><span class="p">]),</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"syx"</span><span class="p">]),</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"syz"</span><span class="p">]),</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"szx"</span><span class="p">]),</span>
-            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"szy"</span><span class="p">]),</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;translations&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;center&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;angles&quot;</span><span class="p">],</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;sxy&quot;</span><span class="p">]),</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;sxz&quot;</span><span class="p">]),</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;syx&quot;</span><span class="p">]),</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;syz&quot;</span><span class="p">]),</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;szx&quot;</span><span class="p">]),</span>
+            <span class="n">deg2rad</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;szy&quot;</span><span class="p">]),</span>
         <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">transform</span>
 
     <span class="k">def</span> <span class="nf">apply_transform</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">flags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">transform</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-        <span class="n">transform</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Expected the transform to be a Tensor. Gotcha </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">warp_affine3d</span><span class="p">(</span>
             <span class="nb">input</span><span class="p">,</span>
             <span class="n">transform</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:],</span>
             <span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="nb">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
-            <span class="n">flags</span><span class="p">[</span><span class="s2">"resample"</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
-            <span class="n">align_corners</span><span class="o">=</span><span class="n">flags</span><span class="p">[</span><span class="s2">"align_corners"</span><span class="p">],</span>
+            <span class="n">flags</span><span class="p">[</span><span class="s2">&quot;resample&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span>
+            <span class="n">align_corners</span><span class="o">=</span><span class="n">flags</span><span class="p">[</span><span class="s2">&quot;align_corners&quot;</span><span class="p">],</span>
         <span class="p">)</span></div>
 </pre></div>
         </article>
@@ -485,9 +480,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -503,7 +496,9 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../../_static/scripts/furo.js"></script>
     <script src="../../../../../_static/clipboard.min.js"></script>
     <script src="../../../../../_static/copybutton.js"></script>
@@ -512,6 +507,7 @@
     
     <!-- DocsQA integration start -->
     <script src="https://jina-docqa-ui.netlify.app/dist/qabot.js"></script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.3.1/gradio.js"></script>
     <script>
       // This prevents the global search interfere with qa-bot internal text input.
       document.addEventListener('DOMContentLoaded', () => {
